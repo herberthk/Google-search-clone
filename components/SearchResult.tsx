@@ -54,8 +54,12 @@ const SearchResult = () => {
       setQuotaLimit(null);
       setResult(data);
     } catch (error: any) {
+      // console.log(error);
       if (error.code === "ERR_BAD_REQUEST") {
         setQuotaLimit(error.response.data.error.message.slice(0, 80));
+      }
+      if (error.code === "ERR_NETWORK") {
+        setQuotaLimit("No internet connection");
       }
       // console.log(error.code);
       // console.log(error.response.data.error.message.slice(0, 80));
