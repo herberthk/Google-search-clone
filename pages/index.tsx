@@ -1,5 +1,11 @@
 import Home from "../components/Home";
+import Meta from "../components/Meta";
 
-const IndexPage = () => <Home />;
+const IndexPage = () => (
+  <>
+    <Meta />
+    <Home />
+  </>
+);
 
 export default IndexPage;

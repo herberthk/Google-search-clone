@@ -35,7 +35,7 @@ const SearchResult = () => {
     }
 
     window.scrollTo(0, 0);
-  }, [query, startIndex, imageSearch, quotaLimit]);
+  }, [query, startIndex, imageSearch]);
 
   const fetchSearchResults = async () => {
     if (!query || !startIndex) {

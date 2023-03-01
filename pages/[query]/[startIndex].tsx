@@ -1,7 +1,13 @@
+import Meta from "../../components/Meta";
 import SearchResult from "../../components/SearchResult";
 
 const Result = () => {
-  return <SearchResult />;
+  return (
+    <>
+      <Meta />
+      <SearchResult />
+    </>
+  );
 };
 
 export default Result;
