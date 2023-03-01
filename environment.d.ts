@@ -3,8 +3,8 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       NODE_ENV: "development" | "production";
-      GOOGLE_SEARCH_API_KEY: string;
-      GOOGLE_SEARCH_CTX_KEY: string;
+      NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY: string;
+      NEXT_PUBLIC_GOOGLE_SEARCH_CTX_KEY: string;
     }
   }
 }
