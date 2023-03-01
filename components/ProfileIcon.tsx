@@ -37,7 +37,7 @@ const IconMenu = forwardRef<HTMLDivElement>(function IconMenu(props, ref) {
   return (
     <div
       ref={ref}
-      className="absolute right-0 top-11 grid w-[300px] grid-cols-3 gap-1 rounded-md py-3 px-4 shadow-lg"
+      className="absolute right-0 top-11 z-10 grid w-[300px] grid-cols-3 gap-1 rounded-md bg-white py-3 px-4 shadow-lg"
     >
       <Link
         href=""
