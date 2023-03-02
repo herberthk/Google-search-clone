@@ -4,7 +4,7 @@ export const BASE_URL = "https://www.googleapis.com/customsearch/v1";
 
 export const params = {
   key: process.env.NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY,
-  cx: process.env.NEXT_PUBLIC_GOOGLE_SEARCH_API_KEY,
+  cx: process.env.NEXT_PUBLIC_GOOGLE_SEARCH_CTX_KEY,
 };
 
 export interface PayloadType {
