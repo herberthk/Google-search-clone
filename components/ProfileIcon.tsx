@@ -37,10 +37,10 @@ const IconMenu = forwardRef<HTMLDivElement>(function IconMenu(props, ref) {
   return (
     <div
       ref={ref}
-      className="absolute right-0 top-11 z-10 grid w-[300px] grid-cols-3 gap-1 rounded-md bg-white py-3 px-4 shadow-lg"
+      className="absolute right-0 top-11 z-10 grid w-[300px] grid-cols-3 gap-1 rounded-md border border-[#dfe1e5] bg-white p-5 shadow-lg"
     >
       <Link
-        href=""
+        href="https://myaccount.google.com/?utm_source=OGB&tab=nk&authuser=0&utm_medium=app"
         className="flex flex-col space-y-2 rounded-sm p-2 text-center hover:bg-blue-200"
       >
         <span className="relative mx-auto h-10  w-10 overflow-hidden rounded-full">
@@ -48,13 +48,19 @@ const IconMenu = forwardRef<HTMLDivElement>(function IconMenu(props, ref) {
         </span>
         <span className="text-sm">Account</span>
       </Link>
-      {SideMenuIcons.map(({ Icon, name }, i) => (
+      {SideMenuIcons.map(({ icon, name, to }, i) => (
         <Link
           key={i}
-          href=""
+          href={to}
           className="flex flex-col space-y-2 rounded-sm p-2 text-center hover:bg-blue-200"
         >
-          <Icon size={30} className="mx-auto text-center" />
+          <Image
+            src={icon}
+            width={40}
+            height={40}
+            alt={name}
+            className="mx-auto text-center"
+          />
           <span className="text-sm">{name}</span>
         </Link>
       ))}

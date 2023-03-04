@@ -1,10 +1,9 @@
 import * as React from "react";
-import { GoSearch, GoLocation } from "react-icons/go";
+import { GoSearch } from "react-icons/go";
 import { BsImage } from "react-icons/bs";
 import { BiNews } from "react-icons/bi";
 import { RiVideoLine } from "react-icons/ri";
 import { SlTag } from "react-icons/sl";
-import { FcGoogle, FcStart } from "react-icons/fc";
 
 interface IconBaseProps extends React.SVGAttributes<SVGElement> {
   children?: React.ReactNode;
@@ -19,6 +18,12 @@ type IconType = (props: IconBaseProps) => JSX.Element;
 export interface MenuItems {
   name: string;
   Icon: IconType;
+}
+
+interface sideIcons {
+  name: string;
+  icon: string;
+  to: string;
 }
 
 export const quickLinks = [
@@ -57,50 +62,61 @@ export const menu: MenuItems[] = [
   { name: "Shopping", Icon: SlTag },
 ];
 
-export const SideMenuIcons: MenuItems[] = [
+export const SideMenuIcons: sideIcons[] = [
   {
     name: "Search",
-    Icon: FcGoogle,
-  },
-  {
-    name: "YouTube",
-    Icon: FcStart,
+    icon: "/assets/search.png",
+    to: "https://www.google.co.ug/webhp?authuser=0",
   },
   {
     name: "Maps",
-    Icon: GoLocation,
-  },
-  {
-    name: "Search",
-    Icon: FcGoogle,
+    icon: "/assets/map.png",
+    to: "https://www.google.co.ug/maps/@0.3077959,32.6164403,15z?hl=en&authuser=0",
   },
   {
     name: "YouTube",
-    Icon: FcStart,
+    icon: "/assets/youtube.png",
+    to: "https://youtube.com/",
   },
   {
-    name: "YouTube",
-    Icon: FcStart,
+    name: "Play",
+    icon: "/assets/play.png",
+    to: "https://play.google.com/store/games?hl=en&pli=1",
   },
   {
-    name: "Maps",
-    Icon: GoLocation,
+    name: "Gmail",
+    icon: "/assets/gmail.png",
+    to: "https://mail.google.com/mail/?authuser=0",
   },
   {
-    name: "Search",
-    Icon: FcGoogle,
+    name: "Contacts",
+    icon: "/assets/gcontacts.png",
+    to: "https://contacts.google.com/?hl=en&authuser=0",
+  },
+  {
+    name: "Drive",
+    icon: "/assets/drive.png",
+    to: "https://drive.google.com/?authuser=0",
+  },
+  {
+    name: "Calendar",
+    icon: "/assets/calendar.png",
+    to: "https://calendar.google.com/calendar?authuser=0",
   },
 
   {
-    name: "Maps",
-    Icon: GoLocation,
+    name: "Translate",
+    icon: "/assets/translate.png",
+    to: "https://translate.google.co.ug/?hl=en&authuser=0",
   },
   {
-    name: "Search",
-    Icon: FcGoogle,
+    name: "Photos",
+    icon: "/assets/photo.webp",
+    to: "https://photos.google.com/?authuser=0&pageId=none",
   },
   {
-    name: "YouTube",
-    Icon: FcStart,
+    name: "News",
+    icon: "/assets/news.jpeg",
+    to: "https://news.google.com/?authuser=0",
   },
 ];
