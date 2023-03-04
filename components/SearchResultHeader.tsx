@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import SearchInput from "./SearchInput";
 import ProfileIcon from "./ProfileIcon";
-import { useSearch } from "../utils/ContextApi";
 import { menu } from "../utils/constants";
 import Link from "next/link";
+import useSearchStore from "../store";
 
 const SearchResultHeader = () => {
   const [selectedMenu, setSelectedMenu] = useState("All");
-  const { setImageSearch, setNewsSearch, setVideoSearch, imageSearch } =
-    useSearch();
-
-  useEffect(() => {
-    return () => setImageSearch(false);
-  }, [selectedMenu]);
+  // const [selected, setSelected] = useState(false);
+  const imageSearch = useSearchStore((state) => state.imageSearch);
+  const setImageSelected = useSearchStore((state) => state.setImageSelected);
+  const setResults = useSearchStore((state) => state.setResults);
 
   const clickHandler = (name: string) => {
-    const isTypeImage = name === "Images";
-    if (name === "Images") {
-      console.log("yes its image is selected");
-      setImageSearch(true);
-    }
-    setImageSearch(isTypeImage);
     setSelectedMenu(name);
-    console.log("image search", imageSearch);
-    console.log("selected", name);
-    // console.log("selected image", isTypeImage);
+    const isTypeImage = name === "Images";
+    setImageSelected(isTypeImage);
   };
 
   return (
@@ -48,10 +39,7 @@ const SearchResultHeader = () => {
 
       <div className="ml-[-12px] mt-3 mb-4 flex md:ml-[7rem]">
         {menu.map(({ Icon, name }, index) => (
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyDown={() => {}}
+          <button
             key={index}
             className={`relative flex cursor-pointer items-center p-3 text-[#5f6368] ${
               selectedMenu === name ? "text-[#1a73e8]" : ""
@@ -63,7 +51,7 @@ const SearchResultHeader = () => {
             {selectedMenu === name && (
               <span className="absolute bottom-0 left-[10px] h-[3px] w-[calc(100%-20px)] bg-[#1a73e8]" />
             )}
-          </span>
+          </button>
         ))}
       </div>
     </div>

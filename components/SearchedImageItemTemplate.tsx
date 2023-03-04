@@ -1,13 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
-export interface ImageResult {
-  image: {
-    contextLink: string;
-  };
-  link: string;
-  title: string;
-  displayLink: string;
-}
+import { ImageResult } from "../interfaces";
+
 const SearchedImageItemTemplate: FC<ImageResult> = ({
   displayLink,
   image,

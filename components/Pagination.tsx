@@ -3,18 +3,9 @@ import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { useState, useEffect } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { TypeQuery } from "../interfaces";
 import { pagination } from "../utils/constants";
 
-export interface TypeQuery {
-  queries: {
-    previousPage: {
-      startIndex: number;
-    }[];
-    nextPage: {
-      startIndex: number;
-    }[];
-  };
-}
 const Pagination: FC<TypeQuery> = ({ queries }) => {
   const router = useRouter();
   const {

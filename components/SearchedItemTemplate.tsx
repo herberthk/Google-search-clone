@@ -1,10 +1,6 @@
 import { FC } from "react";
-interface ItemResult {
-  htmlSnippet: string;
-  link: string;
-  title: string;
-  formattedUrl: string;
-}
+import { ItemResult } from "../interfaces";
+
 const SearchedItemTemplate: FC<ItemResult> = ({
   formattedUrl,
   htmlSnippet,
