@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import "react-placeholder/lib/reactPlaceholder.css";
 import "../styles/globals.css";
 const App = ({ Component, pageProps }: AppProps) => {
   // const [loading, setLoading] = React.useState(false);

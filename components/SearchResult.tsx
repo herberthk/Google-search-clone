@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { BASE_URL, params, PayloadType } from "../utils/api";
 import axios from "axios";
 import SearchedImageItemTemplate from "./SearchedImageItemTemplate";
+import { RectShape } from "react-placeholder/lib/placeholders";
+import ReactPlaceholder from "react-placeholder";
 
 const SearchResult: FC<PageProps> = ({ data, error }) => {
   const router = useRouter();
@@ -16,6 +18,7 @@ const SearchResult: FC<PageProps> = ({ data, error }) => {
   const imageSearch = useSearchStore((state) => state.imageSearch);
   // const results = useSearchStore((state) => state.results);
   // const setResults = useSearchStore((state) => state.setResults);
+  const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<ImageResult[]>([]);
 
   useEffect(() => {
@@ -33,6 +36,7 @@ const SearchResult: FC<PageProps> = ({ data, error }) => {
   const getImages = async () => {
     const payload: PayloadType = { q: query, start: startIndex };
     payload.searchType = "image";
+    setLoading(true);
     try {
       const imageResult = await axios.get(BASE_URL, {
         params: { ...params, ...payload },
@@ -42,7 +46,10 @@ const SearchResult: FC<PageProps> = ({ data, error }) => {
       // setResult((prev)=>);
 
       // console.log("data", imageResult.data.items);
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (error) {
@@ -58,6 +65,18 @@ const SearchResult: FC<PageProps> = ({ data, error }) => {
 
   const { items, queries, searchInformation } = data;
 
+  const PlaceHolder = (
+    <>
+      {[...Array(12)].map((_, i) => (
+        <RectShape
+          key={i}
+          color="#E0E0E0"
+          style={{ width: 200, height: 150 }}
+        />
+      ))}
+    </>
+  );
+
   return (
     <div className=" flex min-h-[100vh] flex-col">
       <SearchResultHeader />
@@ -71,9 +90,15 @@ const SearchResult: FC<PageProps> = ({ data, error }) => {
           </>
         ) : (
           <div className="xl:grid-cols-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {results?.map((item, index) => (
-              <SearchedImageItemTemplate key={index} {...item} />
-            ))}
+            <ReactPlaceholder
+              showLoadingAnimation={true}
+              ready={!loading}
+              customPlaceholder={PlaceHolder}
+            >
+              {results?.map((item, index) => (
+                <SearchedImageItemTemplate key={index} {...item} />
+              ))}
+            </ReactPlaceholder>
           </div>
         )}
         <Pagination queries={queries} />
