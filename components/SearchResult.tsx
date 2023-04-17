@@ -14,41 +14,7 @@ const SearchResult: FC<PageProps> = ({ data, isLoading }) => {
   const router = useRouter();
   const imageSearch = useSearchStore((state) => state.imageSearch);
 
-  useEffect(() => {
-    // console.log("image search", imageSelected);
-    // return () => setImageSelected(false);
-    // if (imageSearch) {
-    //   const { isLoading, data } =
-    //     searchApi.endpoints.getSearchesPhotos.useQuery({
-    //       q: router.query?.query,
-    //       start: router.query?.startIndex,
-    //       searchType: "image",
-    //     });
-    //   setLoading(isLoading);
-    //   setResults(data?.items);
-    //   // console.log("image search", imageSearch);
-    //   // getImages();
-    // }
-  }, [imageSearch]);
-
-  // const getImages = async () => {
-  //   const payload: PayloadType = { q: query, start: startIndex };
-  //   payload.searchType = "image";
-  //   setLoading(true);
-  //   try {
-  //     const imageResult = await axios.get(BASE_URL, {
-  //       params: { ...params, ...payload },
-  //     });
-  //     setResults(imageResult.data.items);
-  //     // setQuotaLimit(null);
-  //     // setResult((prev)=>);
-
-  //     // console.log("data", imageResult.data.items);
-  //   } catch (error) {
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+  useEffect(() => {}, [imageSearch]);
 
   return (
     <div className=" flex min-h-[100vh] flex-col">

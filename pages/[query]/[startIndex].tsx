@@ -5,7 +5,6 @@ import SearchResultHeader from "../../components/SearchResultHeader";
 import { useGetSearchesQuery } from "../../services/searchApi";
 
 const Result = () => {
-  // console.log("error from client", error);
   const router = useRouter();
   const { data, isLoading, isError } = useGetSearchesQuery({
     q: router.query?.query,
