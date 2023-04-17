@@ -5,7 +5,7 @@
 ## Tech-stack
 - Next.js with typescript.
 - Tailwindcss as UI framework
--  Used [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) which is a powerful data fetching and caching tool
+- Used [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) which is a powerful data fetching and caching tool
 
 ![Google search clone](/google.png)
 
