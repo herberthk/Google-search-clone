@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { useState, useEffect } from "react";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { FiChevronRight } from "react-icons/fi";
 import { TypeQuery } from "../interfaces";
 import { pagination } from "../utils/constants";
 
@@ -25,7 +25,7 @@ const Pagination: FC<TypeQuery> = ({ queries }) => {
   return (
     <div className="flex max-w-[700px] flex-col items-center py-14">
       <div className="relative text-[#4285f4]">
-        {queries.previousPage && (
+        {/* {queries.previousPage && (
           <div
             className="absolute left-[-30px] top-[10px] md:left-[-40px]"
             onClick={() =>
@@ -40,27 +40,24 @@ const Pagination: FC<TypeQuery> = ({ queries }) => {
               Prev
             </span>
           </div>
-        )}
+        )} */}
         <div className="relative h-[42px] w-[250px] md:w-[300px]">
           <Image alt="Logo" src="/assets/google-pagination-logo.png" fill />
         </div>
-
-        {queries.nextPage && (
-          <div
-            className="absolute right-[-30px] top-[10px] md:right-[-40px]"
-            onClick={() =>
-              paginationClickHandler(queries.nextPage[0].startIndex)
-            }
-            role="button"
-            tabIndex={0}
-            onKeyDown={() => {}}
-          >
-            <FiChevronRight size={20} className="cursor-pointer" />
-            <span className="absolute left-[-5px] top-[30px] hidden cursor-pointer md:block">
-              Next
-            </span>
-          </div>
-        )}
+        <div
+          className="absolute right-[-30px] top-[10px] md:right-[-40px]"
+          onClick={() =>
+            paginationClickHandler(queries?.nextPage[0].startIndex)
+          }
+          role="button"
+          tabIndex={0}
+          onKeyDown={() => {}}
+        >
+          <FiChevronRight size={20} className="cursor-pointer" />
+          <span className="absolute left-[-5px] top-[30px] hidden cursor-pointer md:block">
+            Next
+          </span>
+        </div>
       </div>
       <div className="flex gap-3 text-sm text-[#4285f4]">
         {pagination.map((p) => (

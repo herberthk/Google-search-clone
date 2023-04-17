@@ -1,6 +1,8 @@
 import { AppProps } from "next/app";
 import "react-placeholder/lib/reactPlaceholder.css";
 import "../styles/globals.css";
+import { Provider } from "react-redux";
+import store from "../store";
 const App = ({ Component, pageProps }: AppProps) => {
   // const [loading, setLoading] = React.useState(false);
   // React.useEffect(() => {
@@ -21,7 +23,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   //     Router.events.off("routeChangeError", end);
   //   };
   // }, []);
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 };
 
 export default App;

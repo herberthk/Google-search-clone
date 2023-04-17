@@ -4,7 +4,7 @@ import SearchInput from "./SearchInput";
 import ProfileIcon from "./ProfileIcon";
 import { menu } from "../utils/constants";
 import Link from "next/link";
-import useSearchStore from "../store";
+import { useSearchStore } from "../store";
 
 const SearchResultHeader = () => {
   const [selectedMenu, setSelectedMenu] = useState("All");

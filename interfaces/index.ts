@@ -34,5 +34,6 @@ export interface Results extends TypeQuery {
 
 export interface PageProps {
   data: Results;
-  error: string;
+  error?: string;
+  isLoading: boolean;
 }

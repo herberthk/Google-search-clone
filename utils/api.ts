@@ -10,7 +10,7 @@ export const params = {
 export interface PayloadType {
   q?: string | string[];
   start?: string | string[];
-  searchType?: string;
+  searchType?: "image" | "news";
 }
 
 export const fetchDataFromApi = async (payload: PayloadType) => {
