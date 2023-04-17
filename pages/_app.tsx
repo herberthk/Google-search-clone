@@ -1,9 +1,9 @@
-import { AppProps } from "next/app";
+import type { AppType } from "next/app";
 import "react-placeholder/lib/reactPlaceholder.css";
 import "../styles/globals.css";
 import { Provider } from "react-redux";
 import store from "../store";
-const App = ({ Component, pageProps }: AppProps) => {
+const App: AppType = ({ Component, pageProps }) => {
   // const [loading, setLoading] = React.useState(false);
   // React.useEffect(() => {
   //   const start = () => {
@@ -25,6 +25,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   // }, []);
   return (
     <Provider store={store}>
+      {/* @ts-ignore */}
       <Component {...pageProps} />
     </Provider>
   );

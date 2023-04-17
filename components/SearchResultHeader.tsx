@@ -8,10 +8,7 @@ import { useSearchStore } from "../store";
 
 const SearchResultHeader = () => {
   const [selectedMenu, setSelectedMenu] = useState("All");
-  // const [selected, setSelected] = useState(false);
-  const imageSearch = useSearchStore((state) => state.imageSearch);
   const setImageSelected = useSearchStore((state) => state.setImageSelected);
-  const setResults = useSearchStore((state) => state.setResults);
 
   const clickHandler = (name: string) => {
     setSelectedMenu(name);
